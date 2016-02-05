@@ -1,0 +1,5 @@
+django==1.9.1
+pillow
+sorl-thumbnail
+django-bootstrap3
+
