@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+<form action = "/posts/new" target
+{% block content %}
+<div class = "container">
+    <div class = "jumbotron">
+        <h1>Post_List</h1><br>
+        <p>
+            <ul>
+                {% for post in post_list %}
+                <li>
+                    <!-- <h3><a href = "/posts/{{post.id}}/">{{post.id}}번 게시글</a></h3><br> -->
+                    <h3><a href = "{% url "blog:post_detail" post.pk %}">{{post.id}}번 게시글</a></h3>
+                    제목 : {{post.title}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </p><br>
+        <input type = "button" value = "새 글쓰기" onclick = "location = '/posts/new'">
+    </div>
+</div>
+{% endblock %}

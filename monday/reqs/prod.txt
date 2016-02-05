@@ -1,0 +1,4 @@
+-r commomn.txt
+
+psycopg2
+uwsgi

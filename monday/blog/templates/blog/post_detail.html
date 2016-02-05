@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class = "container">
+    <div class = "jumbotron">
+        <h1>Post_Detail</h1>
+            <p>
+                제목 : {{post.title}}<br><br>
+                {% if post.photo %}
+                    <img src = "{{post.photo.url}}"/><br>
+                {% endif %}
+                내용 : {{post.content}}<br>
+
+            </p>
+            <ul>
+            {% for comment in post.comment_set.all %}
+                <li>{{ comment.title }}</li>
+            {% empty %}
+                <li>등록된 댓글이 없습니다.</li>
+
+            {% endfor %}
+            <a href="{% url "blog:comment_new" post.pk %}" class="btn btn-primary btn-block">
+                새 댓글 쓰기
+            </a>
+            <a href="{% url "blog:post_edit" post.pk %}" class="btn btn-primary btn-block">
+                수정하기
+            </a>
+            <br><input type = "button" value = "수정하기" onclick = "location = 'edit/'">
+            <input type = "button" value = "댓글달기" onclick = "location = 'comments/new/'">
+    </div>
+</div>
+{% endblock %}
