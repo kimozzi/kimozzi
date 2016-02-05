@@ -45,3 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+__pycache__
+db.sqlite3
+**/migrations/**
+/programming/media/
